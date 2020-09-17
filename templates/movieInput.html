@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Movies Recommendation</title>
+</head>
+<body>
+    <div>
+        <div>
+            <form action="/nlp-cosine" method="post" enctype="application/x-www-form-urlencoded">
+                <input name="movie" type="text" placeholder="Enter Movie of Your Choice" required>
+                <input type="number" name="number" placeholder="fill no of expected recommendations">
+                <button type="submit">Get Recommendations</button>
+            </form>
+        </div>
+        <div>
+            <ul>
+                {% if size>0 %}
+                    {% for i in movies %}
+                        <li>{{i}}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
