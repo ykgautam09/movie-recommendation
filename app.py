@@ -5,17 +5,13 @@ from model import get_recommendation
 app = Flask(__name__)
 
 
+
 @app.route('/')
-def welcome():
-    return render_template('index.html')
-
-
-@app.route('/nlp-cosine')
 def nlp_route():
-    return render_template('movieInput.html')
+    return render_template('movieInput.html', size=0)
 
 
-@app.route('/nlp-cosine', methods=['POST'])
+@app.route('/', methods=['POST'])
 def cosine_model():
     movie = request.form.get('movie', "The Dark Knight Rises")
     number = request.form.get('number', 10)
